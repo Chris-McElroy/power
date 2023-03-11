@@ -22,8 +22,8 @@ struct powerApp: App {
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 	func applicationWillFinishLaunching(_ notification: Notification) {
 		// https://stackoverflow.com/questions/70091919/how-set-position-of-window-on-the-desktop-in-swiftui
-		UserDefaults.standard.set("0 0 10 38 0 0 1512 950 ", forKey: "NSWindow Frame main-AppWindow-1")
-	}
+		UserDefaults.standard.set("0 0 13 41 0 0 1512 950 ", forKey: "NSWindow Frame main-AppWindow-1")
+	} // 0 0 10 38 0 0 1512 950
 	
 	func applicationDidFinishLaunching(_ notification: Notification) {
 		if let window = NSApplication.shared.windows.first {
