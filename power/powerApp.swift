@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 @main
 struct powerApp: App {
 	@NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
@@ -22,8 +23,8 @@ struct powerApp: App {
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 	func applicationWillFinishLaunching(_ notification: Notification) {
 		// https://stackoverflow.com/questions/70091919/how-set-position-of-window-on-the-desktop-in-swiftui
-		UserDefaults.standard.set("0 0 13 41 0 0 1512 950 ", forKey: "NSWindow Frame main-AppWindow-1")
-	} // 0 0 10 38 0 0 1512 950
+		UserDefaults.standard.set("0 0 10 38 0 0 1512 950 ", forKey: "NSWindow Frame main-AppWindow-1")
+	} // 0 0 10 38 0 0 1512 950 for me, 0 0 13 41 0 0 1512 950 for vera
 	
 	func applicationDidFinishLaunching(_ notification: Notification) {
 		if let window = NSApplication.shared.windows.first {
@@ -38,10 +39,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 			window.backgroundColor = NSColor.clear
 			window.isReleasedWhenClosed = false
 			window.isMovableByWindowBackground = false
-			window.collectionBehavior = .canJoinAllSpaces
 			window.titlebarSeparatorStyle = .none
 			window.ignoresMouseEvents = true
 			window.delegate = self
+			Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: { _ in
+				// i have no fucking clue why this delay seems to be necessary
+				window.collectionBehavior = .canJoinAllSpaces
+			})
 		}
 		
 		return

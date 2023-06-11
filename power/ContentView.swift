@@ -27,7 +27,7 @@ struct ContentView: View {
     var body: some View {
 		Circle()
 			.foregroundColor(color)
-			.frame(width: 7, height: 7) // was 4 for me
+			.frame(width: 4, height: 4) // was 4 for me, 7 for vera
 			.padding(.all, 3)
 			.onAppear {
 				Timer.scheduledTimer(withTimeInterval: 30, repeats: true, block: { _ in
@@ -60,7 +60,7 @@ func getPowerState() -> PowerState {
 		}
 		
 		if capacity <= 20 { return .dying }
-		if capacity < 40 { return .low }
+		if capacity < 40 { return .low } // 40
 		return .fine
 	}
 	
